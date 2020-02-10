@@ -1,0 +1,36 @@
+<block-ui>
+    <div>
+        <mat-card class="cardDisplay">
+            <mat-card-header style="padding-left: 35px;">
+                <div mat-card-avatar style="font-size: 26px;">
+                    <fa-icon [icon]="faAddressBook"></fa-icon>
+                </div>
+                <mat-card-title>User details</mat-card-title>
+            </mat-card-header>
+            <form class="user-information" style="padding-left: 35px;">
+                <mat-form-field class="first-name">
+                    <mat-label>First name</mat-label>
+                    <input matInput placeholder="John" name="firstName" [(ngModel)]="firstName">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="middle-name">
+                    <mat-label>Middle name</mat-label>
+                    <input matInput placeholder="James" name="middleName" [(ngModel)]="middleName">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="last-name">
+                    <mat-label>Last name</mat-label>
+                    <input matInput placeholder="Doe" name="lastName" [(ngModel)]="lastName">
+                </mat-form-field>
+                <br>
+                <mat-form-field class="id-number">
+                    <mat-label>ID number</mat-label>
+                    <input matInput placeholder="900101123456191" name="idNumber" [(ngModel)]="idNumber">
+                </mat-form-field>
+                <mat-card-actions>
+                    <button style="width: 180px;" mat-flat-button color="primary" (click)="saveUser()">Submit</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+</block-ui>
