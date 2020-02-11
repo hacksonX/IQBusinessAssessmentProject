@@ -23,7 +23,7 @@ export class CaptureComponent {
   @BlockUI() blockUI: NgBlockUI;
 
   constructor(private onlineRegistrationControllerService: OnlineRegistrationControllerService,
-    private _snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
 
   }
 
@@ -41,26 +41,26 @@ export class CaptureComponent {
       )
     ).subscribe(
       response => {
-        this.displaySaveStatus(response);
+        this.displaySaveStatus(response, null);
       },
       error => {
-        console.log(error);
+        this.displaySaveStatus(null, 'Server returned errors');
       }
     );
     return false;
   }
 
-  displaySaveStatus(saveStatus: boolean): void {
+  displaySaveStatus(saveStatus: boolean, message: string): void {
     if (saveStatus) {
-      this._snackBar.open('Data is valid and has been saved', null, {
+      this.snackBar.open('Data is valid and has been saved', null, {
         duration: 5000,
-        verticalPosition: "top"
+        verticalPosition: 'top'
       });
     }
     else {
-      this._snackBar.open('Invalid data. Saving failed.', null, {
+      this.snackBar.open(message === null ? 'Invalid data. Saving failed.' : message, null, {
         duration: 5000,
-        verticalPosition: "top"
+        verticalPosition: 'top'
       });
     }
   }
